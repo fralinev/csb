@@ -25,7 +25,7 @@ export default function Home() {
       </Head>
       <div>CSB</div>
       {posts.map((post: any) => {
-        return <div>{post.title}</div>;
+        return <div key={post._id}>{post.title}</div>;
       })}
     </>
   );
