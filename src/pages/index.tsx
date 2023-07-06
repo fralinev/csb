@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Table from "./Table";
+import PostsDisplay from "./PostsDisplay";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -26,6 +27,8 @@ export default function Home() {
       </Head>
       <div>CSB</div>
       <Table data={posts} />
+      <br />
+      <PostsDisplay posts={posts} />
     </>
   );
 }
