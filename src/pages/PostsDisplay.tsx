@@ -1,11 +1,7 @@
 import { useEffect } from "react";
 
 const PostsDisplay = ({ posts }: any) => {
-  useEffect(() => {
-    console.log("POSTS.LENGTH: ", posts.length);
-  }, []);
-
-  if (posts.length === 0) {
+  if (!posts || posts.length === 0) {
     return <div>Loading...</div>; // Or any other loading state component
   }
   return (

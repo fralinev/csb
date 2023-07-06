@@ -26,7 +26,7 @@ export default function Home({ posts }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>CSB</div>
-      <Table data={posts} />
+      {/* <Table data={posts} /> */}
       <br />
       <PostsDisplay posts={posts} />
     </>
