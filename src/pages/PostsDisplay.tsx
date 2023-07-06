@@ -1,4 +1,7 @@
 const PostsDisplay = ({ posts }: any) => {
+  if (posts.length === 0) {
+    return <div>Loading...</div>; // Or any other loading state component
+  }
   return (
     <div>
       <div>
