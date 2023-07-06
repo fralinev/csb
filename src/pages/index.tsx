@@ -5,17 +5,17 @@ import axios from "axios";
 import Table from "./Table";
 import PostsDisplay from "./PostsDisplay";
 
-export default function Home() {
-  const [posts, setPosts] = useState([]);
+export default function Home({ posts }: any) {
+  // const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const getPosts = async () => {
-      const response = await axios.get("/api/posts");
-      console.log(response.data);
-      setPosts(response.data);
-    };
-    getPosts();
-  }, []);
+  // useEffect(() => {
+  //   const getPosts = async () => {
+  //     const response = await axios.get("/api/posts");
+  //     console.log(response.data);
+  //     setPosts(response.data);
+  //   };
+  //   getPosts();
+  // }, []);
 
   return (
     <>
@@ -31,4 +31,15 @@ export default function Home() {
       <PostsDisplay posts={posts} />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const response = await fetch("https://csb-eight.vercel.app/api/posts");
+  const posts = await response.json();
+
+  return {
+    props: {
+      posts: posts || [], // Ensure posts is always defined
+    },
+  };
 }
