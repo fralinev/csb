@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Table from "./Table";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -24,9 +25,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>CSB</div>
-      {posts.map((post: any) => {
-        return <div key={post._id}>{post.title}</div>;
-      })}
+      <Table data={posts} />
     </>
   );
 }
