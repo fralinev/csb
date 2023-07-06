@@ -4,8 +4,7 @@ const PostsDisplay = ({ posts }: any) => {
       <div>
         {posts.map((post: any) => {
           return (
-            <div>
-              <div>{post._id}</div>
+            <div key={post._id}>
               <div>{post.title}</div>
               <div>{post.author}</div>
               <div>{post.body}</div>
