@@ -1,11 +1,20 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const response = await axios.get("/api/posts");
+      console.log(response.data);
+      setPosts(response.data);
+    };
+    getPosts();
+  }, []);
+
   return (
     <>
       <Head>
@@ -15,6 +24,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>CSB</div>
+      {posts.map((post: any) => {
+        return <div>{post.title}</div>;
+      })}
     </>
   );
 }
