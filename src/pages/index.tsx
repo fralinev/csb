@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Table from "./Table";
 import PostsDisplay from "./PostsDisplay";
+import Link from "next/link";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -29,6 +30,7 @@ export default function Home() {
       <Table data={posts} />
       <br />
       <PostsDisplay posts={posts} />
+      <Link href="/login">login</Link>
     </>
   );
 }
